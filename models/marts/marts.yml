@@ -1,0 +1,83 @@
+version: 2
+
+models:
+  - name: dim_movies
+
+    description: >
+      Analytical movie dimension containing cleaned IMDB movie
+      information for downstream analytics and BI reporting.
+
+    columns:
+
+      - name: movie_id
+        description: "Unique identifier for the movie."
+        tests:
+          - not_null
+          - unique
+
+      - name: series_title
+        description: "Movie title."
+        tests:
+          - not_null
+
+      - name: released_year
+        description: "Year the movie was released."
+
+      - name: certificate
+        description: "Movie certification."
+
+      - name: runtime_minutes
+        description: "Movie runtime in minutes."
+
+      - name: genre
+        description: "Comma-separated movie genres from the source."
+
+      - name: imdb_rating
+        description: "IMDB rating from 0 to 10."
+
+      - name: overview
+        description: "Movie description or synopsis."
+
+      - name: meta_score
+        description: "Metacritic score."
+
+      - name: director
+        description: "Movie director."
+
+      - name: star1
+        description: "First principal actor."
+
+      - name: star2
+        description: "Second principal actor."
+
+      - name: star3
+        description: "Third principal actor."
+
+      - name: star4
+        description: "Fourth principal actor."
+
+      - name: no_of_votes
+        description: "Number of votes received on IMDB."
+
+      - name: gross
+        description: "Gross revenue. NULL means the source did not provide a value."
+        
+  - name: bridge_movie_genre
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+
+      - name: genre_name
+        tests:
+          - not_null
+
+  - name: bridge_movie_actor
+    columns:
+      - name: movie_id
+        tests:
+          - not_null
+
+      - name: actor_name
+        tests:
+          - not_null

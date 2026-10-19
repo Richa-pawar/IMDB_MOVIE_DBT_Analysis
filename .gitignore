@@ -1,0 +1,9 @@
+# Python virtual environments
+dbt_venv/
+.venv/
+venv/
+
+# dbt generated files
+target/
+dbt_packages/
+logs/

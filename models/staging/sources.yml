@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: imdb
+    database: IMDB_DW
+    schema: RAW
+
+    tables:
+      - name: RAW_IMDB_MOVIES
+        description: >
+          Raw IMDB movie data ingested from AWS S3 into Snowflake
+          using Snowpipe.

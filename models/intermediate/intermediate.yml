@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_imdb_movies_cleaned
+
+    description: >
+      Cleaned IMDB movie data with standardized numeric fields,
+      runtime converted to minutes, and gross revenue converted
+      to a numeric value.
+
+    columns:
+
+      - name: movie_id
+        description: "Unique identifier for the movie."
+        tests:
+          - not_null
+          - unique
+
+      - name: series_title
+        description: "Movie title."
+        tests:
+          - not_null
+
+      - name: released_year
+        description: "Movie release year."
+
+      - name: runtime_minutes
+        description: "Movie runtime in minutes."
+
+      - name: imdb_rating
+        description: "IMDB rating from 0 to 10."
+
+      - name: meta_score
+        description: "Metacritic score."
+
+      - name: no_of_votes
+        description: "Number of votes received on IMDB."
+
+      - name: gross
+        description: "Gross revenue. NULL indicates that the source did not provide revenue."
