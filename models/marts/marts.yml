@@ -81,3 +81,31 @@ models:
       - name: actor_name
         tests:
           - not_null
+
+  - name: fact_movie_performance
+    description: "One row per movie, containing its performance metrics."
+    columns:
+      - name: movie_id
+        description: "Movie identifier and fact table grain."
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('dim_movies')
+                field: movie_id
+
+      - name: imdb_rating
+        description: "IMDb user rating."
+
+      - name: meta_score
+        description: "Critic Metascore."
+
+      - name: no_of_votes
+        description: "Number of IMDb votes."
+
+      - name: gross
+        description: "Gross revenue; NULL when unavailable."
+
+      - name: runtime_minutes
+        description: "Runtime in minutes."
